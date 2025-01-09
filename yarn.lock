@@ -1077,7 +1077,7 @@
     pirates "^4.0.6"
     source-map-support "^0.5.16"
 
-"@babel/runtime@^7.20.0", "@babel/runtime@^7.25.0", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.20.0", "@babel/runtime@^7.23.2", "@babel/runtime@^7.25.0", "@babel/runtime@^7.8.4":
   version "7.26.0"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.26.0.tgz"
   integrity sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==
@@ -1823,6 +1823,16 @@
     use-latest-callback "^0.2.1"
     use-sync-external-store "^1.2.2"
 
+"@react-navigation/drawer@^7.1.1":
+  version "7.1.1"
+  resolved "https://registry.npmjs.org/@react-navigation/drawer/-/drawer-7.1.1.tgz"
+  integrity sha512-34UqRS5OLFaNXPs5ocz3Du9c7em0P7fFMPYCZn/MxadDzQ4Mn/74pmJczmiyvyvz8vcWsNRbZ3Qswm0Dv6z60w==
+  dependencies:
+    "@react-navigation/elements" "^2.2.5"
+    color "^4.2.3"
+    react-native-drawer-layout "^4.1.1"
+    use-latest-callback "^0.2.1"
+
 "@react-navigation/elements@^2.2.5":
   version "2.2.5"
   resolved "https://registry.npmjs.org/@react-navigation/elements/-/elements-2.2.5.tgz"
@@ -2112,22 +2122,27 @@ anymatch@^3.0.3:
     "@react-native-async-storage/async-storage" "^2.1.0"
     "@react-native-picker/picker" "^2.9.0"
     "@react-navigation/bottom-tabs" "^7.2.0"
+    "@react-navigation/drawer" "^7.1.1"
     "@react-navigation/native" "^7.0.14"
     "@react-navigation/native-stack" "^7.2.0"
     "@react-navigation/stack" "^7.1.1"
     apexapp "file:"
-    axios "^1.2.0"
+    axios "^1.7.9"
     expo "~52.0.23"
+    expo-image-picker "^16.0.3"
     expo-status-bar "~2.0.0"
+    i18next "^24.2.1"
     react "18.3.1"
+    react-i18next "^15.4.0"
     react-native "0.76.5"
     react-native-chart-kit "^6.12.0"
     react-native-gesture-handler "^2.21.2"
     react-native-get-random-values "^1.11.0"
+    react-native-localize "^3.3.0"
     react-native-paper "^5.12.5"
     react-native-picker-select "^9.3.1"
     react-native-reanimated "^3.16.6"
-    react-native-safe-area-context "4.12.0"
+    react-native-safe-area-context "^4.12.0"
     react-native-screens "^4.4.0"
     react-native-svg "^15.8.0"
     react-native-vector-icons "^10.2.0"
@@ -2187,12 +2202,12 @@ at-least-node@^1.0.0:
   resolved "https://registry.npmjs.org/at-least-node/-/at-least-node-1.0.0.tgz"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-axios@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.2.0.tgz"
-  integrity sha512-zT7wZyNYu3N5Bu0wuZ6QccIf93Qk1eV8LOewxgjOZFd2DenOs98cJ7+Y6703d0wkaXGY6/nZd4EweJaHz9uzQw==
+axios@^1.7.9:
+  version "1.7.9"
+  resolved "https://registry.npmjs.org/axios/-/axios-1.7.9.tgz"
+  integrity sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==
   dependencies:
-    follow-redirects "^1.15.0"
+    follow-redirects "^1.15.6"
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
@@ -3192,6 +3207,18 @@ expo-font@~13.0.2:
   dependencies:
     fontfaceobserver "^2.1.0"
 
+expo-image-loader@~5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/expo-image-loader/-/expo-image-loader-5.0.0.tgz"
+  integrity sha512-Eg+5FHtyzv3Jjw9dHwu2pWy4xjf8fu3V0Asyy42kO+t/FbvW/vjUixpTjPtgKQLQh+2/9Nk4JjFDV6FwCnF2ZA==
+
+expo-image-picker@^16.0.3:
+  version "16.0.3"
+  resolved "https://registry.npmjs.org/expo-image-picker/-/expo-image-picker-16.0.3.tgz"
+  integrity sha512-c4IOqIQOtx8puWWU4fVsJhuGiAhH6gAIdrVzhimOXSEUHnfxCckRYzvznbd/0cuvaA5y9H0CSYrxpTUc/0WNVw==
+  dependencies:
+    expo-image-loader "~5.0.0"
+
 expo-keep-awake@~14.0.1:
   version "14.0.1"
   resolved "https://registry.npmjs.org/expo-keep-awake/-/expo-keep-awake-14.0.1.tgz"
@@ -3389,7 +3416,7 @@ flow-parser@0.*:
   resolved "https://registry.npmjs.org/flow-parser/-/flow-parser-0.258.0.tgz"
   integrity sha512-/f3ui3WaPTRUtqnWaGzf/f352hn4VhqGOiuSVkgaW6SbHNp5EwdDoh6BF3zB9A6kcWhCpg/0x0A3aXU+KXugAA==
 
-follow-redirects@^1.15.0:
+follow-redirects@^1.15.6:
   version "1.15.9"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.9.tgz"
   integrity sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==
@@ -3669,6 +3696,13 @@ hosted-git-info@^7.0.0:
   dependencies:
     lru-cache "^10.0.1"
 
+html-parse-stringify@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz"
+  integrity sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==
+  dependencies:
+    void-elements "3.1.0"
+
 http-errors@2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/http-errors/-/http-errors-2.0.0.tgz"
@@ -3684,6 +3718,13 @@ human-signals@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/human-signals/-/human-signals-2.1.0.tgz"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
+
+i18next@^24.2.1, "i18next@>= 23.2.3":
+  version "24.2.1"
+  resolved "https://registry.npmjs.org/i18next/-/i18next-24.2.1.tgz"
+  integrity sha512-Q2wC1TjWcSikn1VAJg13UGIjc+okpFxQTxjVAymOnSA3RpttBQNMPf2ovcgoFVsV4QNxTfNZMAxorXZXsk4fBA==
+  dependencies:
+    "@babel/runtime" "^7.23.2"
 
 ieee754@^1.1.13:
   version "1.2.1"
@@ -5152,6 +5193,14 @@ react-freeze@^1.0.0:
   resolved "https://registry.npmjs.org/react-freeze/-/react-freeze-1.0.4.tgz"
   integrity sha512-r4F0Sec0BLxWicc7HEyo2x3/2icUTrRmDjaaRyzzn+7aDyFZliszMDOgLVwSnQnYENOlL1o569Ze2HZefk8clA==
 
+react-i18next@^15.4.0:
+  version "15.4.0"
+  resolved "https://registry.npmjs.org/react-i18next/-/react-i18next-15.4.0.tgz"
+  integrity sha512-Py6UkX3zV08RTvL6ZANRoBh9sL/ne6rQq79XlkHEdd82cZr2H9usbWpUNVadJntIZP2pu3M2rL1CN+5rQYfYFw==
+  dependencies:
+    "@babel/runtime" "^7.25.0"
+    html-parse-stringify "^3.0.1"
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -5176,6 +5225,13 @@ react-native-chart-kit@^6.12.0:
     paths-js "^0.4.10"
     point-in-polygon "^1.0.1"
 
+react-native-drawer-layout@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/react-native-drawer-layout/-/react-native-drawer-layout-4.1.1.tgz"
+  integrity sha512-ob6O3ph7PZ3A2FpdlsSxHuMpHDXREZPR8A6S3q0dSxV7i6d+8Z6CPCTbegfN2QZyizSow9NLrKyXP93tlqZ3dA==
+  dependencies:
+    use-latest-callback "^0.2.1"
+
 react-native-gesture-handler@^2.21.2, "react-native-gesture-handler@>= 2.0.0":
   version "2.21.2"
   resolved "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.21.2.tgz"
@@ -5192,6 +5248,11 @@ react-native-get-random-values@^1.11.0:
   integrity sha512-4BTbDbRmS7iPdhYLRcz3PGFIpFJBwNZg9g42iwa2P6FOv9vZj/xJc678RZXnLNZzd0qd7Q3CCF6Yd+CU2eoXKQ==
   dependencies:
     fast-base64-decode "^1.0.0"
+
+react-native-localize@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/react-native-localize/-/react-native-localize-3.3.0.tgz"
+  integrity sha512-pbxiL0sL9hv3dRRcDRHEcsLGfuQavFfsK0dK5RNVjmTI8x3hiojRJHcppzqKOAUjZusehbA7Hnzdjz/7LkZsgw==
 
 react-native-paper@^5.12.5:
   version "5.12.5"
@@ -5210,7 +5271,7 @@ react-native-picker-select@^9.3.1:
     lodash.isequal "^4.5.0"
     lodash.isobject "^3.0.2"
 
-react-native-reanimated@^3.16.6:
+react-native-reanimated@^3.16.6, "react-native-reanimated@>= 2.0.0":
   version "3.16.6"
   resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-3.16.6.tgz"
   integrity sha512-jPbAfLF5t8+UCKFTO+LeOY+OmAcDP5SsAfqINvNQz5GFGvoO7UebxujjtY58CmpZNH6c3SQ514FF9//mZDpo/g==
@@ -5227,7 +5288,7 @@ react-native-reanimated@^3.16.6:
     convert-source-map "^2.0.0"
     invariant "^2.2.4"
 
-react-native-safe-area-context@*, "react-native-safe-area-context@>= 4.0.0", react-native-safe-area-context@4.12.0:
+react-native-safe-area-context@*, react-native-safe-area-context@^4.12.0, "react-native-safe-area-context@>= 4.0.0":
   version "4.12.0"
   resolved "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-4.12.0.tgz"
   integrity sha512-ukk5PxcF4p3yu6qMZcmeiZgowhb5AsKRnil54YFUUAXVIS7PJcMHGGC+q44fCiBg44/1AJk5njGMez1m9H0BVQ==
@@ -5257,7 +5318,7 @@ react-native-vector-icons@*, react-native-vector-icons@^10.2.0:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-react-native@*, "react-native@^0.0.0-0 || >=0.65 <1.0", "react-native@>= 0.50.0", react-native@>=0.56, react-native@0.76.5:
+react-native@*, "react-native@^0.0.0-0 || >=0.65 <1.0", "react-native@>= 0.50.0", react-native@>=0.56, react-native@>=0.70.0, react-native@0.76.5:
   version "0.76.5"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.76.5.tgz"
   integrity sha512-op2p2kB+lqMF1D7AdX4+wvaR0OPFbvWYs+VBE7bwsb99Cn9xISrLRLAgFflZedQsa5HvnOGrULhtnmItbIKVVw==
@@ -5311,7 +5372,7 @@ react-refresh@^0.14.0, react-refresh@^0.14.2:
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.14.2.tgz"
   integrity sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==
 
-react@*, "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react@^18.2.0, "react@> 16.7.0", "react@>= 18.2.0", react@>=16.3.0, react@>=16.8, react@>=17.0.0, react@18.3.1:
+react@*, "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react@^18.2.0, "react@> 16.7.0", "react@>= 16.8.0", "react@>= 18.2.0", react@>=16.3.0, react@>=16.8, react@>=17.0.0, react@>=18.1.0, react@18.3.1:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
@@ -6212,6 +6273,11 @@ vlq@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/vlq/-/vlq-1.0.1.tgz"
   integrity sha512-gQpnTgkubC6hQgdIcRdYGDSDc+SaujOdyesZQMv6JlfQee/9Mp0Qhnys6WxDWvQnL5WZdT7o2Ul187aSt0Rq+w==
+
+void-elements@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/void-elements/-/void-elements-3.1.0.tgz"
+  integrity sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==
 
 walker@^1.0.7, walker@^1.0.8:
   version "1.0.8"

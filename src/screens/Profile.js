@@ -9,7 +9,6 @@ const Profile = ({navigation}) => {
         flex: 1,
         padding: 16,
         backgroundColor: '#fff',
-        marginTop: 50,
       }}
     >
       {/* Header Section */}

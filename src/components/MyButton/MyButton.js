@@ -11,7 +11,7 @@ export default function MyButton({ title, onPress, style }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#4BA26A",
+    backgroundColor: "#EB5D72",
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",

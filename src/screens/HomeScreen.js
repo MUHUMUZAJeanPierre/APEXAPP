@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     View,
     Text,
@@ -14,37 +14,65 @@ import {
 const width = Dimensions.get("screen").width;
 
 function HomeScreen({ navigation }) {
+    
+    const [QuickActions, setQuickActions] = useState([]);
+    const [RecommendedResources, setRecommendedResources] = useState([]);
+    const [eventsData, setEventsData] = useState([]);
 
-    const eventsData = [
-        {
-            id: 1,
-            title: "Health Parameter Screening Event",
-            description: "Offline Event",
-            date: "AUG 31",
-            image: require("../../assets/segment_1.png"),
-        },
-        {
-            id: 2,
-            title: "Mental Health Workshop",
-            description: "Online Event",
-            date: "SEP 5",
-            image: require("../../assets/segment_1.png"),
-        },
-        {
-            id: 3,
-            title: "Community Health Camp",
-            description: "Offline Event",
-            date: "OCT 12",
-            image: require("../../assets/segment_2.png"),
-        },
-        {
-            id: 4,
-            title: "Nutrition Awareness Drive",
-            description: "Online Event",
-            date: "NOV 22",
-            image: require("../../assets/segment_3.png"),
-        },
-    ];
+    useEffect(() => {
+        fetch("https://sex-health-back-1.onrender.com/action")
+          .then((response) => response.json())
+          .then((data) => setQuickActions(data.data))
+          .catch((error) => console.error("Error fetching Quick Actions:", error));
+      }, []);
+    
+      // Fetch Recommended Resources from API
+      useEffect(() => {
+        fetch("https://sex-health-back-1.onrender.com/health")
+          .then((response) => response.json())
+          .then((data) => setRecommendedResources(data.data))
+          .catch((error) => console.error("Error fetching Recommended Resources:", error));
+      }, []);
+    
+      // Fetch Events Data from API
+      useEffect(() => {
+        fetch("https://sex-health-back-1.onrender.com/event")
+          .then((response) => response.json())
+          .then((data) => setEventsData(data.data))
+          .catch((error) => console.error("Error fetching Events Data:", error));
+      }, []);
+
+    // const eventsData = [
+    //     {
+    //         id: 1,
+    //         title: "Health Parameter Screening Event",
+    //         description: "Offline Event",
+    //         date: "AUG 31",
+    //         image: require("../../assets/segment_1.png"),
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Mental Health Workshop",
+    //         description: "Online Event",
+    //         date: "SEP 5",
+    //         image: require("../../assets/segment_1.png"),
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Community Health Camp",
+    //         description: "Offline Event",
+    //         date: "OCT 12",
+    //         image: require("../../assets/segment_2.png"),
+    //     },
+    //     {
+    //         id: 4,
+    //         title: "Nutrition Awareness Drive",
+    //         description: "Online Event",
+    //         date: "NOV 22",
+    //         image: require("../../assets/segment_3.png"),
+    //     },
+    // ];
+
 
     // State for active slide
     const [activeSlide, setActiveSlide] = useState(0);
@@ -55,53 +83,53 @@ function HomeScreen({ navigation }) {
         setActiveSlide(slide);
     };
 
-    const QuickActions = [
-        {
-            id: 1,
-            title: "Find Clinics",
-            icon: require("../../assets/segment_1.png"), // Replace with actual icon
-        },
-        {
-            id: 2,
-            title: "Contraceptive Info",
-            icon: require("../../assets/segment_2.png"), // Replace with actual icon
-        },
-        {
-            id: 3,
-            title: "Get Support",
-            icon: require("../../assets/segment_3.png"), // Replace with actual icon
-        },
-    ];
+    // const QuickActions = [
+    //     {
+    //         id: 1,
+    //         title: "Find Clinics",
+    //         icon: require("../../assets/segment_1.png"), // Replace with actual icon
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Contraceptive Info",
+    //         icon: require("../../assets/segment_2.png"), // Replace with actual icon
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Get Support",
+    //         icon: require("../../assets/segment_3.png"), // Replace with actual icon
+    //     },
+    // ];
 
-    const RecommendedResources = [
-        {
-            id: 1,
-            title: "STI Prevention",
-            description: "Track your health progress",
-            image: require("../../assets/segment_4.png"), // Replace with actual image
-        },
-        {
-            id: 2,
-            title: "Health Insurance",
-            description: "Learn about your insurance options",
-            image: require("../../assets/segment_1.png"), // Replace with actual image
-        },
-        {
-            id: 3,
-            title: "Reproductive Health",
-            description: "Find information on reproductive health services.",
-            image: require("../../assets/segment_2.png"), // Replace with actual image
-        },
-        {
-            id: 4,
-            title: "Mental Well-being",
-            description: "Access resources for mental health support.",
-            image: require("../../assets/segment_3.png"), // Replace with actual image
-        },
-    ];
+    // const RecommendedResources = [
+    //     {
+    //         id: 1,
+    //         title: "STI Prevention",
+    //         description: "Track your health progress",
+    //         image: require("../../assets/segment_4.png"), // Replace with actual image
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Health Insurance",
+    //         description: "Learn about your insurance options",
+    //         image: require("../../assets/segment_1.png"), // Replace with actual image
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Reproductive Health",
+    //         description: "Find information on reproductive health services.",
+    //         image: require("../../assets/segment_2.png"), // Replace with actual image
+    //     },
+    //     {
+    //         id: 4,
+    //         title: "Mental Well-being",
+    //         description: "Access resources for mental health support.",
+    //         image: require("../../assets/segment_3.png"), // Replace with actual image
+    //     },
+    // ];
 
     return (
-        <ScrollView style={{ backgroundColor: "white", marginTop: 50 }}>
+        <ScrollView style={{ backgroundColor: "white", marginTop: -1 }}>
             {/* Welcome Banner */}
             <View
                 style={{
@@ -182,7 +210,7 @@ function HomeScreen({ navigation }) {
                         >
                             {/* Full-Width Image */}
                             <Image
-                                source={action.icon}
+                                source={{uri: action.image}}
                                 style={{
                                     width: "100%",
                                     height: "100%",
@@ -258,24 +286,24 @@ function HomeScreen({ navigation }) {
                 </Text>
                 <FlatList
                     data={RecommendedResources}
-                    keyExtractor={(item) => item.id.toString()}
+                    keyExtractor={(item) => item.id}
                     numColumns={2}
                     columnWrapperStyle={{ justifyContent: "space-between", marginBottom: 15 }}
                     renderItem={({ item }) => (
                         // <TouchableOpacity></TouchableOpacity>
                         <TouchableOpacity
-                        onPress={()=>navigation.navigate('Detail')}
+                        onPress={()=>navigation.navigate('detail', {id: item.id})}
                             style={{
                                 backgroundColor: "white",
                                 borderRadius: 10,
                                 width: width / 2.3,
                                 elevation: 5,
-                                overflow: "hidden", // Ensures the content stays within the rounded box
+                                overflow: "hidden", 
                             }}
                         >
                             {/* Image Section */}
                             <Image
-                                source={item.image}
+                                source={{uri: item.image}}
                                 style={{
                                     width: "100%",
                                     height: 120, // Adjust height as needed
@@ -316,7 +344,7 @@ function HomeScreen({ navigation }) {
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 pagingEnabled
-                keyExtractor={(item) => item.id.toString()}
+                keyExtractor={(item) => item.id}
                 onScroll={handleScroll}
                 renderItem={({ item }) => (
                     <View style={styles.cardContainer}>
@@ -332,7 +360,7 @@ function HomeScreen({ navigation }) {
                             </TouchableOpacity>
                         </View>
                         <Image
-                            source={item.image}
+                            source={{uri: item.image}}
                             style={styles.cardImage}
                         />
                         {/* Event Date */}

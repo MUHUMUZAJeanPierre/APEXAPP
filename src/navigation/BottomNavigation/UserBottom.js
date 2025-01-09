@@ -65,76 +65,6 @@ function AnimatedIcon({ name, size, color, focused }) {
   );
 }
 
-// Admin Bottom Tab Navigator
-function AdminBottom() {
-  const [userRole, setUserRole] = useState(null);
-
-  useEffect(() => {
-    const fetchUserRole = async () => {
-      const role = await AsyncStorage.getItem("userRole");
-      setUserRole(role);
-    };
-
-    fetchUserRole();
-  }, []);
-
-  if (userRole === null) {
-    return <LoadingScreen />;
-  }
-
-  return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarActiveTintColor: "##EB5D72",
-        tabBarInactiveTintColor: "gray",
-        tabBarStyle: {
-          backgroundColor: "gray",
-          borderTopWidth: 0,
-          elevation: 5,
-        },
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-
-          if (route.name === "Dashboard") {
-            iconName = focused ? "analytics" : "analytics-outline";
-          } else if (route.name === "User Management") {
-            iconName = "team";
-          }
-
-          return (
-            <AnimatedIcon
-              name={iconName}
-              size={size}
-              color={color}
-              focused={focused}
-            />
-          );
-        },
-      })}
-    >
-      <Tab.Screen
-        name="Dashboard"
-        options={{ headerShown: false }}
-      >
-        {() => (
-          <AnimatedScreen>
-            <HomeScreen />
-          </AnimatedScreen>
-        )}
-      </Tab.Screen>
-      <Tab.Screen
-        name="User Management"
-        options={{ headerShown: false }}
-      >
-        {() => (
-          <AnimatedScreen>
-            <Profile />
-          </AnimatedScreen>
-        )}
-      </Tab.Screen>
-    </Tab.Navigator>
-  );
-}
 
 // User Bottom Tab Navigator
 function UserBottom() {
@@ -144,7 +74,7 @@ function UserBottom() {
         tabBarActiveTintColor: "#EB5D72",
         tabBarInactiveTintColor: "gray",
         tabBarStyle: {
-          backgroundColor: "black",
+          backgroundColor: "white",
           borderTopWidth: 0,
           elevation: 5,
         },
@@ -218,9 +148,6 @@ function UserBottom() {
   );
 }
 
-// Main Navigator
-function MainNavigator({ userRole }) {
-  return <>{userRole === "admin" ? <AdminBottom /> : <UserBottom />}</>;
-}
 
-export default MainNavigator;
+
+export default UserBottom;

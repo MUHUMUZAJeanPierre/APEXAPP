@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList, Pressable, Alert, Dimensions } from "react-native";
+import { View, Text, FlatList, Pressable, Alert, Dimensions, ScrollView } from "react-native";
 import { BarChart } from "react-native-chart-kit";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
@@ -51,7 +51,7 @@ const Dashboard = ({ navigation }) => {
     };
 
     const handleAddContent = () => {
-        navigation.navigate("AdminContentPage"); // Navigate to AddContent screen
+        navigation.navigate("AddNewEvent"); 
     };
 
     const renderItem = ({ item }) => (
@@ -98,7 +98,7 @@ const Dashboard = ({ navigation }) => {
     );
 
     return (
-        <View
+        <ScrollView
             style={{
                 flex: 1,
                 backgroundColor: "#f5f5f5",
@@ -169,7 +169,7 @@ const Dashboard = ({ navigation }) => {
                 keyExtractor={(item) => item.id}
                 contentContainerStyle={{ paddingBottom: 20 }}
             />
-        </View>
+        </ScrollView>
     );
 };
 

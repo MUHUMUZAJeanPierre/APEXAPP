@@ -10,7 +10,8 @@ import {
 import React, { useState } from "react";
 import InputText from "../InputText/InputText";
 import MyButton from "../MyButton/MyButton";
-import { TextInput } from "react-native-paper";
+import { IconButton, TextInput } from "react-native-paper";
+import SocialMedia from "../SocialMedia/SocialMedia";
 
 const ImageOne = require("../../../assets/edited_ui_image.jpeg");
 const facebook = require("../../../assets/facebook (1).png");
@@ -118,6 +119,14 @@ const SignUp = ({ navigation }) => {
           paddingTop: 65,
         }}
       >
+
+        <IconButton
+          icon="arrow-left"
+          size={24}
+          onPress={() => navigation.goBack()}
+          style={{ position: "absolute", top: 40, left: 10 }}
+          color="#EB5D72"
+        />
         {/* Header Image */}
         <View
           style={{
@@ -263,7 +272,7 @@ const SignUp = ({ navigation }) => {
             flexDirection: "row",
             justifyContent: "space-evenly",
             alignItems: "center",
-            marginTop: 15,
+            // marginBottom: 15,
           }}
         >
           <View
@@ -282,7 +291,7 @@ const SignUp = ({ navigation }) => {
             }}
           ></View>
         </View>
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             justifyContent: "center",
@@ -315,7 +324,8 @@ const SignUp = ({ navigation }) => {
           >
             <Image source={google} style={{ width: "50%", height: "50%" }} />
           </View>
-        </View>
+        </View> */}
+        <SocialMedia />
 
         {/* Login Link */}
         <View
@@ -323,7 +333,9 @@ const SignUp = ({ navigation }) => {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: 20,
+            textAlign: "center",
+            marginBottom: 20,
+            gap: 20,
             backgroundColor: "white",
           }}
         >
